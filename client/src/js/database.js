@@ -1,3 +1,4 @@
+// create a database called jate
 import { openDB } from 'idb';
 
 const initdb = async () =>
@@ -21,8 +22,13 @@ export const putDb = async (content) => {
   await db.put('jate', content);
 };
 
-// TODO: Add logic for a method that gets all the content from the database
-export const getDb = async () => console.error('getDb not implemented');
+// export a function to get the content from the database
+export const getDb = async () => {
+  console.log('content retrieved from database');
+  const db = await openDB('jate', 1);
+  const content = await db.getAll('jate');
+  return content;
+};
 
 
 initdb();
