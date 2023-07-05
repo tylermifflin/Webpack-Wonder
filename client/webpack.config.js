@@ -18,6 +18,12 @@ module.exports = () => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
+      new HtmlWebpackPlugin({
+        template: './index.html',
+        inject: true,
+        chunks: ['main'],
+        filename: 'index.html',
+      }),
       
     ],
 
