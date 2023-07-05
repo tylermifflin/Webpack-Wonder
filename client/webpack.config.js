@@ -24,6 +24,10 @@ module.exports = () => {
         chunks: ['main'],
         filename: 'index.html',
       }),
+      new InjectManifest({
+        swSrc: './src-sw.js',
+        swDest: 'sw.js',
+      }),
       
     ],
 
