@@ -33,7 +33,9 @@ module.exports = () => {
         short_name: 'Jate',
         description: 'A simple note taking app',
         background_color: '#ffffff',
-        crossorigin: 'use-credentials', //can be null, use-credentials or anonymous
+        theme_color: '#ffffff',
+        start_url: '/',
+        publicPath: '/',
         icons: [
           {
             src: path.resolve('src/assets/icon.png'),
