@@ -22,8 +22,9 @@ export const putDb = async (content) => {
 // create a store to update the database
   const store = tx.objectStore('jate');
 // update the content to the database
-  await store.put(content);
-  console.log('content added to database' + content);
+  const content = await store.put('jate');
+  const result = await content;
+  console.log('content added to database' + result);
 };
 
 // export a function to get the content from the database
@@ -35,9 +36,10 @@ export const getDb = async () => {
   // create a store to get the content from the database
   const store = tx.objectStore('jate');
   // get the content from the database
-  const content = await store.getAll('jate');
-  console.log('content retrieved from database');
-  return content;
+  const request = await store.getAll('jate');
+  const result = await request;
+  console.log('content retrieved from database' + result);
+  return result;
 };
 
 
