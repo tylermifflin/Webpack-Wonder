@@ -29,8 +29,8 @@ module.exports = () => {
       }),
       // set up manifest file
       new WebpackPwaManifest({
-        name: 'Jate',
-        short_name: 'Jate',
+        name: 'Webpack Wonder',
+        short_name: 'Webpack Wonder',
         description: 'A simple note taking app',
         background_color: '#ffffff',
         theme_color: '#ffffff',
