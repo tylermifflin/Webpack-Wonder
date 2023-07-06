@@ -32,10 +32,12 @@ module.exports = () => {
         name: 'Webpack Wonder',
         short_name: 'Webpack Wonder',
         description: 'A simple note taking app',
-        background_color: '#ffffff',
-        theme_color: '#ffffff',
+        background_color: '#225ca3',
+        theme_color: '#225ca3',
         start_url: '/',
         publicPath: '/',
+        orientation: 'portrait',
+        display: 'standalone',
         icons: [
           {
             src: path.resolve('src/images/icon.png'),
