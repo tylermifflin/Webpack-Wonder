@@ -3,8 +3,6 @@ const butInstall = document.getElementById('buttonInstall');
 // Logic for installing the PWA
 // set up a listener for the beforeinstallprompt event
 window.addEventListener('beforeinstallprompt', (event) => {
-    // Prevent Chrome <= 67 from automatically showing the prompt
-    event.preventDefault();
     // Stash the event so it can be triggered later.
     window.deferredPrompt = event;
     // Update UI notify the user they can add to home screen
@@ -21,9 +19,6 @@ butInstall.addEventListener('click', async () => {
     }
     // Show the install prompt.
     promptEvent.prompt();
-    // Log the result
-    const result = await promptEvent.userChoice;
-    console.log('userChoice', result);
     // Reset the deferred prompt variable, since
     // prompt() can only be called once.
     window.deferredPrompt = null;
