@@ -14,7 +14,7 @@ const initdb = async () =>
   });
 
 // export a function to update the database
-export const putDb = async (content) => {  
+export const putDb = async () => {  
 // create a connection to the database
   const db = await openDB('jate', 1);
 //create a transaction to update the database

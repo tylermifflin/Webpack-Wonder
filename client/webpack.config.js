@@ -8,7 +8,9 @@ module.exports = () => {
     mode: 'development',
     entry: {
       main: './src/js/index.js',
-      install: './src/js/install.js'
+      install: './src/js/install.js',
+      editor: './src/js/editor.js',
+      header: './src/js/header.js',
     },
     output: {
       filename: '[name].bundle.js',
@@ -25,7 +27,7 @@ module.exports = () => {
       // set up service worker
       new InjectManifest({
         swSrc: './src-sw.js',
-        swDest: 'sw.js',
+        swDest: 'src-sw.js',
       }),
       // set up manifest file
       new WebpackPwaManifest({
@@ -40,7 +42,7 @@ module.exports = () => {
         display: 'standalone',
         icons: [
           {
-            src: path.resolve('src/images/icon.png'),
+            src: path.resolve('src/images/logo.png'),
             sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
             destination: path.join('assets', 'icons'),
           },
@@ -59,8 +61,13 @@ module.exports = () => {
         {
           test: /\.js$/,
           exclude: /node_modules/,
-          use: ['babel-loader'],
+          use: {
+            loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env'],
         }, 
+        },
+        },
       ],
     },
   };
