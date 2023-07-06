@@ -14,7 +14,7 @@ const initdb = async () =>
   });
 
 // export a function to update the database
-export const putDb = async () => {  
+export const putDb = async (content) => {  
 // create a connection to the database
   const db = await openDB('jate', 1);
 //create a transaction to update the database
@@ -22,8 +22,8 @@ export const putDb = async () => {
 // create a store to update the database
   const store = tx.objectStore('jate');
 // update the content to the database
-  const content = await store.put('jate');
-  const result = await content;
+  const request = store.put({id: 1, value: content});
+  const result = await request;
   console.log('content added to database' + result);
 };
 
@@ -36,7 +36,7 @@ export const getDb = async () => {
   // create a store to get the content from the database
   const store = tx.objectStore('jate');
   // get the content from the database
-  const request = await store.getAll('jate');
+  const request = store.getAll();
   const result = await request;
   console.log('content retrieved from database' + result);
   return result;
