@@ -8,7 +8,7 @@ window.addEventListener('beforeinstallprompt', (event) => {
     // Stash the event so it can be triggered later.
     window.deferredPrompt = event;
     // Update UI notify the user they can add to home screen
-    butInstall.removeAttribute('hidden');
+    butInstall.classList.toggle('hidden', false);
 });
 
 // set up a listener for the butInstall button
@@ -28,7 +28,7 @@ butInstall.addEventListener('click', async () => {
     // prompt() can only be called once.
     window.deferredPrompt = null;
     // Hide the install button.
-    butInstall.setAttribute('hidden', true);
+    butInstall.classList.toggle('hidden', true);
 });
 
 // set up a listener for the appinstalled event
