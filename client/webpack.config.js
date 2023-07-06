@@ -20,9 +20,7 @@ module.exports = () => {
       // set up HTML webpack plugin
       new HtmlWebpackPlugin({
         template: './index.html',
-        inject: true,
-        chunks: ['main'],
-        filename: 'index.html',
+        title: 'Webpack Wonder',
       }),
       // set up service worker
       new InjectManifest({
@@ -32,14 +30,12 @@ module.exports = () => {
       // set up manifest file
       new WebpackPwaManifest({
         name: 'Webpack Wonder',
-        short_name: 'Webpack Wonder',
+        short_name: 'Webpack',
         description: 'A simple note taking app',
         background_color: '#225ca3',
         theme_color: '#225ca3',
-        start_url: '/',
-        publicPath: '/',
-        orientation: 'portrait',
-        display: 'standalone',
+        start_url: './',
+        publicPath: './',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
