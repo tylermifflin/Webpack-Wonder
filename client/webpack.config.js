@@ -10,7 +10,6 @@ module.exports = () => {
       main: './src/js/index.js',
       install: './src/js/install.js',
       editor: './src/js/editor.js',
-      header: './src/js/header.js',
     },
     output: {
       filename: '[name].bundle.js',
@@ -39,7 +38,7 @@ module.exports = () => {
         icons: [
           {
             src: path.resolve('src/images/logo.png'),
-            sizes: [96, 128, 192, 256, 384, 512], // multiple sizes
+            sizes: ['96x96', '128x128', '192x192', '256x256', '384x384', '512x512'], 
             destination: path.join('assets', 'icons'),
           },
         ],
@@ -61,6 +60,7 @@ module.exports = () => {
             loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
+            plugins: ['@babel/plugin-proposal-object-rest-spread', '@babel/plugin-transform-runtime'], 
         }, 
         },
         },
