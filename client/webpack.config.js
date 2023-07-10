@@ -9,6 +9,7 @@ module.exports = () => {
     entry: {
       main: './src/js/index.js',
       install: './src/js/install.js',
+      editor: './src/js/editor.js',
     },
     output: {
       filename: '[name].bundle.js',
@@ -27,13 +28,15 @@ module.exports = () => {
       }),
       // set up manifest file
       new WebpackPwaManifest({
+        fingerprints: false,
+        inject: true,
         name: 'Webpack Wonder',
         short_name: 'Webpack',
         description: 'A simple note taking app',
         background_color: '#225ca3',
         theme_color: '#225ca3',
-        start_url: '/',
-        publicPath: '/',
+        start_url: './',
+        publicPath: './',
         icons: [
           {
             src: path.resolve('src/images/logo.png'),

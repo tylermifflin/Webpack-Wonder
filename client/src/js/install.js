@@ -29,6 +29,4 @@ butInstall.addEventListener('click', async () => {
 // set up a listener for the appinstalled event
 window.addEventListener('appinstalled', (event) => {
     window.deferredPrompt = null;
-    // Log the installation to analytics or save the event somehow.
-    console.log('👍', 'appinstalled', event);
 });
